@@ -1,0 +1,18 @@
+.footer {
+  border-top: 1px solid #e6e6e6;
+  padding: 18px 24px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: #111;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .sep {
+    color: #999;
+  }
+}
