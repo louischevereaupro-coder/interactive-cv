@@ -1,1 +1,41 @@
-<p>experience works!</p>
+<section class="page">
+  <header class="page-header">
+    <h1>Expérience</h1>
+    <p>Ce que j’ai fait en entreprise, et avec quelles technos.</p>
+  </header>
+
+  <ng-container *ngIf="experiences$ | async as profile">
+    <div class="timeline">
+      <article class="item" *ngFor="let exp of profile.experiences">
+        <div class="dot"></div>
+
+        <div class="content">
+          <div class="top">
+            <div class="left">
+              <h2>{{ exp.role }}</h2>
+              <div class="meta">
+                <span class="company">{{ exp.company }}</span>
+                <span class="sep">•</span>
+                <span>{{ exp.contract }}</span>
+                <span class="sep" *ngIf="exp.location">•</span>
+                <span *ngIf="exp.location">{{ exp.location }}</span>
+              </div>
+            </div>
+
+            <div class="dates">
+              {{ exp.start }} — {{ exp.end }}
+            </div>
+          </div>
+
+          <ul class="highlights">
+            <li *ngFor="let h of exp.highlights">{{ h }}</li>
+          </ul>
+
+          <div class="stack" *ngIf="exp.stack?.length">
+            <span class="chip" *ngFor="let s of exp.stack">{{ s }}</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </ng-container>
+</section>
